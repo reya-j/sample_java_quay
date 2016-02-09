@@ -7,26 +7,26 @@ jdk:
    - oraclejdk8
 
 build:
- # pre_ci:
-  #  - docker build -t=shippabledocker/hitchcock3_sample_node .
+  pre_ci:
+    - docker build -t=quay.io/shippablequay/hitchcock3_sample_java .
 
- # pre_ci_boot:
-  #  image_name: shippabledocker/hitchcock3_sample_node
-   # image_tag: latest
-    #pull: false
-    #options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+  pre_ci_boot:
+    image_name: quay.io/shippablequay/hitchcock3_sample_java
+    image_tag: latest
+    pull: false
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
     - ls -al
 
- # post_ci:
-  #  - docker push shippabledocker/hitchcock3_sample_node
+  post_ci:
+    - docker push quay.io/shippablequay/hitchcock3_sample_java
 
-#integrations:
- # hub:
-  #  - integrationName: ship-docker
-   #   type: docker
+integrations:
+  hub:
+    - integrationName: ship-quay
+      type: quay.io
     #  branches:
      #   only:
       #    - master
