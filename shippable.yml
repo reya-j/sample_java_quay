@@ -22,7 +22,7 @@ build:
 
   post_ci:
     - docker build -t=quay.io/revathird/testjavaimg .
-    - docker push quay.io/shippablequay/testjavaimg 
+    - docker push quay.io/revathird/testjavaimg 
 
 integrations:
   hub:
