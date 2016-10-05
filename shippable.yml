@@ -3,29 +3,29 @@ language: java
 jdk:
    - openjdk7
    - oraclejdk7
-   - openjdk6
-   - oraclejdk8
+  # - openjdk6
+  # - oraclejdk8
 
 build:
   pre_ci:
-    - docker build -t=quay.io/shippablequay/hitchcock3_sample_java .
+    - docker build -t=quay.io/revathird/hitchcock3_sample_java .
 
   pre_ci_boot:
-    image_name: quay.io/shippablequay/hitchcock3_sample_java
+    image_name: quay.io/revathird/hitchcock3_sample_java
     image_tag: latest
     pull: false
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+#    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
     - ls -al
 
   post_ci:
-    - docker push quay.io/shippablequay/hitchcock3_sample_java
+    - docker push quay.io/revathird/hitchcock3_sample_java
 
 integrations:
   hub:
-    - integrationName: ship-quay
+    - integrationName: ship-quay-1
       type: quay.io
     #  branches:
      #   only:
