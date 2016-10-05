@@ -28,6 +28,10 @@ integrations:
     - integrationName: ship-quay-1
       type: quay.io
     #  branches:
+    
+    
+    
+    
      #   only:
       #    - master
       
