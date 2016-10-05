@@ -7,21 +7,21 @@ jdk:
    - oraclejdk8
 
 build:
-#  pre_ci:
- #   - docker build -t=quay.io/shippablequay/hitchcock3_sample_java .
+  pre_ci:
+    - docker build -t=quay.io/revathird/testjavaimg .
 
-  #pre_ci_boot:
-   # image_name: quay.io/shippablequay/hitchcock3_sample_java
-    #image_tag: latest
-    #pull: false
-    #options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+  pre_ci_boot:
+    image_name: quay.io/revathird/testjavaimg
+    image_tag: latest
+    pull: false
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
     - ls -al
 
   post_ci:
-    - docker build -t=quay.io/revathird/testjavaimg .
+    #- docker build -t=quay.io/revathird/testjavaimg .
     - docker push quay.io/revathird/testjavaimg 
 
 integrations:
