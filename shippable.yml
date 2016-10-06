@@ -6,8 +6,8 @@ jdk:
    
 
 build:
-  pre_ci:
-    - docker build -t=quay.io/revathird/testjavaimg .
+ # pre_ci:
+  #  - docker build -t=quay.io/revathird/testjavaimg .
 
   pre_ci_boot:
     image_name: quay.io/revathird/testjavaimg
@@ -20,8 +20,9 @@ build:
     - ls -al
 
   post_ci:
+    - docker build -t=quay.io/revathird/hitchcock3_sample_java .
     #- docker build -t=quay.io/revathird/testjavaimg .
-    - docker push quay.io/revathird/testjavaimg 
+    - docker push quay.io/revathird/hitchcock3_sample_java
 
 integrations:
   hub:
